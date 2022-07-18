@@ -6,14 +6,15 @@ use Illuminate\View\Component;
 
 class Navbar extends Component
 {
+    protected $totalItems;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($totalItems)
     {
-        //
+        $this->totalItems = $totalItems;
     }
 
     /**
@@ -23,6 +24,7 @@ class Navbar extends Component
      */
     public function render()
     {
-        return view('components.components.navbar');
+        $totalItems = $this->totalItems;
+        return view('components.components.navbar',compact('totalItems'));
     }
 }

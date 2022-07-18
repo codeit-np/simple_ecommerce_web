@@ -18,7 +18,7 @@
             </li>
           @else
           <li class="nav-item mx-4">
-            <i class="fa-solid fa-cart-shopping"></i>
+            <a href="/cart"><i class="fa-solid fa-cart-shopping"></i> <span class="badge bg-danger" style="font-size: 10px">{{ $totalItems }}</span></a>
           </li>
           <li class="nav-itam">
             <i class="fa-solid fa-user"></i>

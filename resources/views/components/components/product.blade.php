@@ -1,11 +1,13 @@
 <div class="card text-center">
-   <a href="/product/1" class="text-decoration-none text-dark">
+   <a href="/product/{{ $product->id }}" class="text-decoration-none text-dark">
     <div>
-        <img src="https://marijimat.com/image/cache/catalog/ayam%20bulat-500x500.jpg" alt="" class="img-fluid">
+        <img src="{{ asset($product->image) }}" alt="" class="img-fluid" style="height:250px">
     </div>
     <div>
-        <h5>Whole Chicken</h5>
-        <p>Rs.500 <span>Per chicken</span></p>
+        <h5>{{ $product->name }}</h5>
+        <p>@if ($product->discount_percent > 0)
+            <span class="text-danger text-decoration-line-through">Rs.{{ $product->price }}</span>
+        @endif Rs.{{ $product->selling_price }} <span>per {{ $product->unit->name }}</span></p>
     </div>
    </a>
 </div>

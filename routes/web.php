@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class,'home']);
 Route::get('/product/{id}', [PageController::class,'product']);
 Route::get('/cart', [PageController::class,'cart']);
+Route::post('/cart', [PageController::class,'addToCart']);
+Route::delete('/cart/{id}', [PageController::class,'deleteItem']);
+Route::put('/cart/{id}', [PageController::class,'updateCartItem']);
+Route::get('/dashboard', [PageController::class,'dashboard']);
+Route::get('/address', [PageController::class,'address']);
+Route::get('/history', [PageController::class,'history']);
 
 Auth::routes();
 

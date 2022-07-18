@@ -1,27 +1,28 @@
 <x-layout.template>
     <x-slot name="title">Product Details</x-slot>
-    <!-- Navbar -->
-    <x-components.navbar />
-
     <div class="py-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="https://marijimat.com/image/cache/catalog/ayam%20bulat-500x500.jpg" alt="" class="img-fluid">
+                    <img src="{{ asset($product->image) }}" alt="" class="img-fluid">
                 </div>
                 <div class="col-md-8">
-                   <form action="" method="post">
+                   <form action="/cart" method="post">
                     @csrf
-                    <h1>Whole Chicken</h1>
-                    <span class="text-danger text-decoration-line-through">Rs.500</span>
-                    <span>Rs.400</span>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, maxime eligendi velit repellat veniam reprehenderit voluptates animi optio accusamus! Vel consectetur maxime possimus, animi aliquam nulla sint impedit repellendus voluptates.</p>
-                    <input type="number" min="1" value="1" max="10">
-                    @guest
-                    <a href="/login" class="btn btn-primary btn-sm">Add to Cart</a>
-                    @else
-                    <button type="submit" class="btn btn-primary btn-sm">Add to Cart</button>
-                    @endguest
+                    <h1>{{ $product->name }}</h1>
+                        @if ($product->discount_percent>0)
+                        <span class="text-danger text-decoration-line-through">Rs.{{ $product->price }}</span> <span>
+                        @endif
+                        <span>Rs.{{ $product->selling_price }}</span> <span class="fw-bold text-danger">per {{ $product->unit->name }}</span>
+                        <p>{{ $product->description }}</p>
+                        <input type="text" name="product_id" value="{{ $product->id }}" hidden>
+                        <input type="text" name="selling_price" value="{{ $product->selling_price }}" hidden>
+                        <input type="number" min="1" value="1" max="10" name="qty">
+                        @guest
+                        <a href="/login" class="btn btn-primary btn-sm">Add to Cart</a>
+                        @else
+                        <button type="submit" class="btn btn-primary btn-sm">Add to Cart</button>
+                        @endguest
 
 
                    </form>

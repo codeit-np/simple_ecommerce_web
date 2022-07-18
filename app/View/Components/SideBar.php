@@ -1,20 +1,19 @@
 <?php
 
-namespace App\View\Components\Components;
+namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Product extends Component
+class SideBar extends Component
 {
-    protected $product;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($product)
+    public function __construct()
     {
-        $this->product = $product;
+        //
     }
 
     /**
@@ -24,7 +23,6 @@ class Product extends Component
      */
     public function render()
     {
-        $product = $this->product;
-        return view('components.components.product',compact('product'));
+        return view('components.side-bar');
     }
 }

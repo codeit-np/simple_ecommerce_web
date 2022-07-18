@@ -1,7 +1,6 @@
 <x-layout.template>
     <x-slot name="title">Home</x-slot>
-    <!-- Navbar -->
-    <x-components.navbar />
+
 
     <!-- Slot Data Goes Here -->
     <!-- Fresh Chicken -->
@@ -9,90 +8,48 @@
         <div class="container">
             <h1>Fresh Meat</h1>
             <div class="row">
-                <div class="col-md-3">
-                    <x-components.product />
-                </div>
-                <div class="col-md-3">
-                    <x-components.product />
-                </div>
-                <div class="col-md-3">
-                    <x-components.product />
-                </div>
-                <div class="col-md-3">
-                    <x-components.product />
-                </div>
+                @foreach ($freshMeat as $item)
+                    <div class="col-md-3">
+                        <x-components.product :product=$item />
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
 
     <x-components.ads />
 
-     <!-- Vegetables -->
-     <div class="py-5">
+    <!-- Vegetables -->
+    <div class="py-5">
         <div class="container">
             <h1>Fresh Vegetables</h1>
             <div class="row g-2">
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
-                <div class="col-md-2">
-                    <x-components.product />
-                </div>
+                @foreach ($freshVeg as $item)
+                    <div class="col-md-3">
+                        <x-components.product :product=$item />
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </div>
 
-    <!-- Drinks -->
+
+     <!-- Vegetables -->
     <div class="py-5">
         <div class="container">
-            <h1>Drinks</h1>
-            <p>Have a right choice baby</p>
-            <div class="row">
-                <div class="col-md-3">
-                    <x-components.product />
-                </div>
-                <div class="col-md-3">
-                    <x-components.product />
-                </div>
-                <div class="col-md-3">
-                    <x-components.product />
-                </div>
-                <div class="col-md-3">
-                    <x-components.product />
-                </div>
+            <h1>Fresh Drinks</h1>
+            <div class="row g-2">
+                @foreach ($freshVeg as $item)
+                    <div class="col-md-3">
+                        <x-components.product :product=$item />
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </div>
+
 
     <!-- Footer -->
     <x-components.footer />
